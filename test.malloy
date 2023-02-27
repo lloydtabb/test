@@ -1,0 +1,8 @@
+source: auto_recalls is table('duckdb:auto_recalls.csv') {
+  measure: recall_count is count()
+
+  query: by_manufacturer is {
+    group_by: Manufacturer
+    aggregate: recall_count
+  }
+}
